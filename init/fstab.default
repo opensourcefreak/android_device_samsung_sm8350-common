@@ -60,7 +60,7 @@ odm	/odm	ext4	ro	wait,avb,logical,first_stage_mount
 /dev/block/bootdevice/by-name/recovery                  /recovery    emmc    defaults     defaults
 
 # VOLD:samsung/common/fstab_non_AB.samsung
-/devices/platform/soc/8804000.sdhci/mmc_host*           auto    vfat    defaults    voldmanaged=sdcard:auto
+/devices/platform/soc/8804000.sdhci/mmc_host*           auto    auto    defaults    wait,voldmanaged=sdcard:auto,encryptable=userdata
 /devices/platform/soc/*.ssusb/*.dwc3/xhci-hcd.*.auto*   auto    auto    defaults    voldmanaged=usb:auto
 
 # Samsung ODE
