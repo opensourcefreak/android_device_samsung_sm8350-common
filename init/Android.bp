@@ -64,20 +64,12 @@ prebuilt_etc {
     vendor: true,
 }
 
-sh_binary {
-    name: "init.qcom.usb.sh",
-    src: "init.qcom.usb.sh",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
 prebuilt_etc {
     name: "init.qti.kernel.rc",
     src: "init.qti.kernel.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
-
 
 prebuilt_etc {
     name: "init.target.rc",
