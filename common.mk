@@ -167,7 +167,7 @@ PRODUCT_PACKAGES += \
     libdisplayconfig.qti \
     libqdMetaData \
     memtrack.default \
-    gralloc.default
+    gralloc.default \
     android.hardware.renderscript@1.0-impl \
     vendor.display.config@2.0.vendor \
     libtinyxml \
@@ -460,7 +460,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v30/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v30.so
 
- WiFi
+# WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     WifiOverlay \
