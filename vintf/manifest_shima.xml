@@ -1,6 +1,6 @@
 <!--
     Input:
-        manifest_lahaina.xml
+        manifest_shima.xml
         manifest.xml
         manifest.xml
         manifest.xml
@@ -78,12 +78,12 @@
     <hal format="hidl">
         <name>android.hardware.camera.provider</name>
         <transport>hwbinder</transport>
-        <version>2.6</version>
+        <version>2.4</version>
         <interface>
             <name>ICameraProvider</name>
             <instance>legacy/0</instance>
         </interface>
-        <fqname>@2.6::ICameraProvider/legacy/0</fqname>
+        <fqname>@2.4::ICameraProvider/legacy/0</fqname>
     </hal>
     <hal format="hidl" override="true">
         <name>android.hardware.gatekeeper</name>
@@ -263,6 +263,18 @@
         <fqname>@1.1::IDataConnection/slot2</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.data.iwlan</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IIWlan</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+        </interface>
+        <fqname>@1.0::IIWlan/slot1</fqname>
+        <fqname>@1.0::IIWlan/slot2</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.hardware.data.latency</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -318,16 +330,6 @@
         <fqname>@2.0::IIop/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.mwqemadapter</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IMwqemAdapter</name>
-            <instance>MwqemAdapter</instance>
-        </interface>
-        <fqname>@1.0::IMwqemAdapter/MwqemAdapter</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.qti.hardware.perf</name>
         <transport>hwbinder</transport>
         <version>2.2</version>
@@ -336,6 +338,16 @@
             <instance>default</instance>
         </interface>
         <fqname>@2.2::IPerf/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.qconfig</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IQConfig</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IQConfig/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.qseecom</name>
@@ -491,6 +503,16 @@
         <fqname>@1.0::ISecureProcessor/qti-tee</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.soter</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISoter</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISoter/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.hardware.trustedui</name>
         <transport>hwbinder</transport>
         <fqname>@1.1::ITrustedInput/default</fqname>
@@ -509,14 +531,29 @@
         <fqname>@1.0::ITuiComm/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.wifi.wifilearner</name>
+        <name>vendor.qti.hardware.wifidisplaysession</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IWifiStats</name>
-            <instance>wifiStats</instance>
+            <name>IWifiDisplaySession</name>
+            <instance>wifidisplaysession</instance>
         </interface>
-        <fqname>@1.0::IWifiStats/wifiStats</fqname>
+        <interface>
+            <name>IWifiDisplaySessionAudioTrack</name>
+            <instance>wifidisplaysessionaudiotrack</instance>
+        </interface>
+        <interface>
+            <name>IWifiDisplaySessionImageTrack</name>
+            <instance>wifidisplaysessionimagetrack</instance>
+        </interface>
+        <interface>
+            <name>IWifiDisplaySessionVideoTrack</name>
+            <instance>wifidisplaysessionvideotrack</instance>
+        </interface>
+        <fqname>@1.0::IWifiDisplaySession/wifidisplaysession</fqname>
+        <fqname>@1.0::IWifiDisplaySessionAudioTrack/wifidisplaysessionaudiotrack</fqname>
+        <fqname>@1.0::IWifiDisplaySessionImageTrack/wifidisplaysessionimagetrack</fqname>
+        <fqname>@1.0::IWifiDisplaySessionVideoTrack/wifidisplaysessionvideotrack</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.ims.callinfo</name>
@@ -542,6 +579,16 @@
         <name>vendor.qti.power.pasrmanager</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.qesdhal</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IQesdhal</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.1::IQesdhal/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.samsung.hardware.audio</name>
@@ -574,16 +621,6 @@
             <instance>default</instance>
         </interface>
         <fqname>@3.0::ISehBiometricsFingerprint/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.samsung.hardware.bluetooth</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>ISehBluetooth</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@2.0::ISehBluetooth/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.samsung.hardware.bluetooth.a2dp</name>

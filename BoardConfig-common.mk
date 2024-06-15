@@ -4,7 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
@@ -14,7 +13,7 @@ COMMON_PATH := device/samsung/sm8350-common
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a-dotprod
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 := 
+TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := cortex-a76
 
 TARGET_2ND_ARCH := arm
@@ -58,22 +57,27 @@ TARGET_KERNEL_APPEND_DTB := false
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/samsung/sm8350
+#TARGET_KERNEL_SOURCE := some devices have diffrent source, set in device tree
 TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_NO_GCC := false
+TARGET_KERNEL_CLANG_VERSION := r416183b
+TARGET_KERNEL_CLANG_PATH := $(abspath .)/prebuilts/clang/kernel/$(HOST_PREBUILT_TAG)/clang-$(TARGET_KERNEL_CLANG_VERSION)
 
 # Kernel modules
 TARGET_MODULE_ALIASES += wlan.ko:qca_cld3_wlan.ko
 
 # HIDL
 DEVICE_MANIFEST_FILE := \
-    $(COMMON_PATH)/vintf/manifest_lahaina.xml
+    $(COMMON_PATH)/vintf/manifest_lahaina.xml \
+		$(COMMON_PATH)/vintf/manifest_shima.xml \
+		$(COMMON_PATH)/vintf/manifest_yupik.xml
 
 DEVICE_MATRIX_FILE := \
     $(COMMON_PATH)/vintf/compatibility_matrix.xml
 
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(COMMON_PATH)/vintf/framework_compatibility_matrix.xml \
-	vendor/derp/config/device_framework_matrix.xml
+		vendor/lineage/config/device_framework_matrix.xml
 
 # File systems
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
@@ -157,7 +161,7 @@ BOOT_SECURITY_PATCH := 2023-08-05
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # SEPolicy
-include device/qcom/sepolicy_vndr/SEPolicy.mk
+include device/qcom/sepolicy_vndr/legacy-um/SEPolicy.mk
 
 # VNDK
 PRODUCT_VNDK_VERSION := current
@@ -181,4 +185,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Include the proprietary files BoardConfig.
-include vendor/samsung/sm8350-common/BoardConfigVendor.mk
+-include vendor/samsung/sm8350-common/BoardConfigVendor.mk

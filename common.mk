@@ -23,31 +23,15 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio-impl \
     android.hardware.soundtrigger@2.3-impl \
     audio.bluetooth.default \
-    audio.primary.kalama \
     audio.r_submix.default \
     audio.usb.default \
     audioadsprpcd \
-    libagm_compress_plugin \
-    libagm_mixer_plugin \
-    libagm_pcm_plugin \
     libbatterylistener \
-    libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libsndcardparser \
-    libtinycompress \
-    libvolumelistener \
-    sound_trigger.primary.lahaina
-
-AUDIO_HAL_DIR := hardware/qcom-caf/sm8350/audio/primary-hal
-
-PRODUCT_COPY_FILES += \
-    $(AUDIO_HAL_DIR)/configs/common/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    $(AUDIO_HAL_DIR)/configs/kalama/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_kalama/audio_effects.conf \
-    $(AUDIO_HAL_DIR)/configs/kalama/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_kalama/audio_effects.xml \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_kalama_qssi/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
-    $(LOCAL_PATH)/audio/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml
+    libtinycompress
+		
+PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/data-ipa-cfg-mgr-legacy-um
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
@@ -99,8 +83,6 @@ PRODUCT_COPY_FILES += \
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
-    init.qti.display_boot.rc \
-    init.qti.display_boot.sh \
     libdisplayconfig.qti \
     libdisplayconfig.system.qti \
     libqdMetaData \
@@ -113,14 +95,12 @@ PRODUCT_PACKAGES += \
     vendor.display.config@2.0.vendor \
     vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.composer-service \
-    vendor.qti.hardware.display.config \
     vendor.qti.hardware.display.config-V1-ndk.vendor \
     vendor.qti.hardware.display.config-V2-ndk.vendor \
     vendor.qti.hardware.display.config-V3-ndk.vendor \
     vendor.qti.hardware.display.config-V4-ndk.vendor \
     vendor.qti.hardware.display.config-V5-ndk.vendor \
     vendor.qti.hardware.display.config-V6-ndk.vendor \
-    vendor.qti.hardware.display.demura-service \
     vendor.qti.hardware.display.mapper@1.1.vendor \
     vendor.qti.hardware.display.mapper@2.0.vendor \
     vendor.qti.hardware.display.mapper@3.0.vendor \
@@ -168,44 +148,11 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
 
-# Hotword enrollment
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
-
 # IPACM
 PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml \
-    IPACM_Filter_cfg.xml
+    ipacm
 
 USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
-
-# Init
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default \
-    $(LOCAL_PATH)/init/fstab.default:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.default
-
-PRODUCT_PACKAGES += \
-    fstab.default \
-    fstab.ramplus \
-    init.qcom.rc \
-    init.qti.kernel.rc \
-    init.ramplus.rc \
-    init.recovery.qcom.rc \
-    init.recovery.samsung.rc \
-    init.samsung.bsp.rc \
-    init.samsung.display.rc \
-    init.samsung.rc \
-    init.target.rc \
-    ueventd.qcom.rc \
-    init.class_main.sh \
-    init.qcom.early_boot.sh \
-    init.qcom.post_boot.sh \
-    init.qcom.sh \
-    init.qti.kernel.sh \
-    init.qti.qcv.sh \
-    vendor_modprobe.sh
-
 
 # Keymaster
 PRODUCT_PACKAGES += \
@@ -228,7 +175,6 @@ PRODUCT_PACKAGES += \
     libavservices_minijail.vendor \
     libcodec2_hidl@1.0.vendor \
     libcodec2_vndk.vendor \
-    libpalclient
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
@@ -238,14 +184,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml
-
-PRODUCT_COPY_FILES += \
-    $(AUDIO_HAL_DIR)/configs/common/codec2/media_codecs_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2_audio.xml \
-    $(AUDIO_HAL_DIR)/configs/common/codec2/service/1.0/c2audio.vendor.base-arm.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.base-arm.policy \
-    $(AUDIO_HAL_DIR)/configs/common/codec2/service/1.0/c2audio.vendor.base-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.base-arm64.policy \
-    $(AUDIO_HAL_DIR)/configs/common/codec2/service/1.0/c2audio.vendor.ext-arm.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.ext-arm.policy \
-    $(AUDIO_HAL_DIR)/configs/common/codec2/service/1.0/c2audio.vendor.ext-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy \
-    $(AUDIO_HAL_DIR)/configs/common/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml
 
 # No A/B
 AB_OTA_UPDATER := false
@@ -299,10 +237,6 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     secril_config_svc
 
-# Remove few packages
-PRODUCT_PACKAGES += \
-    RemovePackages
-
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.multihal \
@@ -331,14 +265,11 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.3-service-qti \
-    init.qcom.usb.rc \
-    init.qcom.usb.sh
-
-PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/usb/etc
+    android.hardware.usb@1.3-service-qti
 
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/qcom/opensource/usb/etc
+    vendor/qcom/opensource/usb/etc \
+
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
@@ -375,4 +306,4 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
 
 # Inherit from the proprietary files makefile.
-$(call inherit-product, vendor/samsung/sm8350-common/sm8350-common-vendor.mk)
+$(call inherit-product-if-exisits, vendor/samsung/sm8350-common/sm8350-common-vendor.mk)
