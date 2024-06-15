@@ -76,7 +76,6 @@ vendor.audio.feature.incall_music.enable=true
 vendor.audio.feature.audiozoom.enable=false
 
 # Bluetooth
-bluetooth.device.default_name=Galaxy S21 FE
 persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
 ro.bluetooth.a2dp_offload.supported=true
 persist.bluetooth.a2dp_offload.disabled=false
