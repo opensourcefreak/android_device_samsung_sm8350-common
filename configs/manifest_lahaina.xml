@@ -590,7 +590,7 @@
         <fqname>@2.0::ISehGnss/default</fqname>
     </hal>
     <sepolicy>
-        <version>30.0</version>
+        <version>34.0</version>
     </sepolicy>
     <kernel target-level="5"/>
 </manifest>
