@@ -79,7 +79,6 @@
     <hal format="aidl" override="true">
         <name>android.hardware.nfc</name>
         <transport>hwbinder</transport>
-        <fqname>INfc/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.radio</name>
@@ -204,7 +203,6 @@
     </hal>
      <hal format="aidl" override="true">
         <name>vendor.nxp.nxpnfc_aidl</name>
-        <fqname>INxpNfc/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.data.factory</name>
