@@ -1030,6 +1030,16 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.secureprocessor.device</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISecureProcessor</name>
+            <instance>qti-tee</instance>
+        </interface>
+        <fqname>@1.0::ISecureProcessor/qti-tee</fqname>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.sensorscalibrate</name>
         <version>1.0</version>
@@ -1261,6 +1271,16 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.wifi.wifilearner</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IWifiStats</name>
+            <instance>wifiStats</instance>
+        </interface>
+        <fqname>@1.0::IWifiStats/wifiStats</fqname>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.samsung.hardware.audio</name>
         <version>1.0</version>
@@ -1277,6 +1297,38 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.samsung.hardware.bluetooth.a2dp</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISehBluetoothAudioOffload</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISehBluetoothAudioOffload/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.samsung.hardware.bluetooth.a2dpsink</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISehBluetoothA2dpSinkProvidersFactory</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISehBluetoothA2dpSinkProvidersFactory/default</fqname>
+    </hal>
+
+    <hal format="hidl">
+        <name>vendor.samsung.hardware.bluetooth.audio</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>ISehBluetoothAudioProvidersFactory</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.1::ISehBluetoothAudioProvidersFactory/default</fqname>
+    </hal>
+
     <hal format="hidl" optional="true">
         <name>vendor.samsung.hardware.gnss</name>
         <version>2.0</version>
@@ -1292,6 +1344,26 @@
             <name>ISehGnss</name>
             <instance>default</instance>
         </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.samsung.hardware.health</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>ISehHealth</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::ISehHealth/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.samsung.hardware.nfc</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+           <interface>
+           <name>ISehNfc</name>
+           <instance>default</instance>
+        </interface>
+        <fqname>@2.0::ISehNfc/default</fqname>
     </hal>
     <hal format="hidl" optional="true">
         <name>vendor.samsung.hardware.radio</name>
