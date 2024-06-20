@@ -68,9 +68,7 @@ TARGET_MODULE_ALIASES += wlan.ko:qca_cld3_wlan.ko
 
 # HIDL
 DEVICE_MANIFEST_FILE := \
-    $(COMMON_PATH)/vintf/manifest_lahaina.xml \
-		$(COMMON_PATH)/vintf/manifest_shima.xml \
-		$(COMMON_PATH)/vintf/manifest_yupik.xml
+    $(COMMON_PATH)/vintf/manifest_lahaina.xml
 
 DEVICE_MATRIX_FILE := \
     $(COMMON_PATH)/vintf/compatibility_matrix.xml
@@ -118,11 +116,6 @@ BOARD_PRODUCTIMAGE_PARTITION_SIZE               := 2375680000
 #BOARD_ODMIMAGE_PARTITION_RESERVED_SIZE         := 500000000
 BOARD_ODMIMAGE_PARTITION_SIZE                   := 512000000
 BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := \
-    system \
-    product \
-    vendor \
-    odm
 
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 
