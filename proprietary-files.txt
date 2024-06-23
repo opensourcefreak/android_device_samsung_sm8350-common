@@ -978,4 +978,3 @@ vendor/lib/libwifi-hal.so
 vendor/lib64/libmdf.so
 vendor/lib64/libucsengine.so
 vendor/lib64/libwifi-hal.so
-
