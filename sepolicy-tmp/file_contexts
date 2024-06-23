@@ -1,0 +1,8 @@
+# Root folders
+/omr(/.*)?                                      u:object_r:omr_file:s0
+/misc(/.*)?                                     u:object_r:misc_file:s0
+/optics(/.*)?                                   u:object_r:optics_file:s0
+/prism(/.*)?                                    u:object_r:prism_file:s0
+/carrier(/.*)?                                  u:object_r:carrier_file:s0
+/spu(/.*)?                                      u:object_r:spu_file:s0
+/dqmdbg(/.*)?                                   u:object_r:dqmdbg_file:s0
