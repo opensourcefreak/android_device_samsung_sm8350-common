@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter r9q,t2q,$(TARGET_DEVICE)),)
+ifneq ($(filter r9q t2q b2q,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
@@ -26,7 +26,7 @@ FIRMWARE_MOUNT_POINT := $(TARGET_OUT_VENDOR)/firmware_mnt
 $(FIRMWARE_MOUNT_POINT): $(LOCAL_INSTALLED_MODULE)
 	@echo "Creating $(FIRMWARE_MOUNT_POINT)"
 	@mkdir -p $(TARGET_OUT_VENDOR)/firmware_mnt
-	
+
 FIRMWARE_MODEM_MOUNT_POINT := $(TARGET_OUT_VENDOR)/firmware-modem
 $(FIRMWARE_MODEM_MOUNT_POINT): $(LOCAL_INSTALLED_MODULE)
 	@echo "Creating $(FIRMWARE_MODEM_MOUNT_POINT)"
@@ -101,7 +101,7 @@ $(RFS_MDM_SLPI_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /mnt/vendor/persist/rfs/mdm/slpi $@/readwrite
 	$(hide) ln -sf /mnt/vendor/persist/rfs/shared $@/shared
 	$(hide) ln -sf /vendor/firmware_mnt $@/readonly/firmware
-	
+
 RFS_MDM_TN_SYMLINKS := $(TARGET_OUT_VENDOR)/rfs/mdm/tn/
 $(RFS_MDM_TN_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Creating RFS MDM TN folder structure: $@"
